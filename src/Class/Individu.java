@@ -1,8 +1,9 @@
 package Class;
 
 public abstract class Individu {
+		
 	
-	public abstract int evaluer();
+	public abstract double evaluer();
 	
 
 }
