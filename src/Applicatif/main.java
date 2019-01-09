@@ -11,9 +11,12 @@ public class main {
 		Population pop = new Population(5, myInd );
 		
 		for(Individu ind : pop.getPopulation()) {
+			ind.setScore(ind.evaluer());
 			System.out.println(ind.toString());
 		}
 
+		
+		
 	}
 
 }

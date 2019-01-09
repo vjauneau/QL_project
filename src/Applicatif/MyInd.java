@@ -37,7 +37,7 @@ public class MyInd extends Individu {
 	@Override
 	public double evaluer() {
 
-		return (this.ind.get(0)^2 - this.ind.get(1)^2);
+		return (this.ind.get(0)*this.ind.get(0) - this.ind.get(1)*this.ind.get(1));
 	}
 	// @Override
 	public Vector<Integer> createIndividu() {
@@ -50,7 +50,7 @@ public class MyInd extends Individu {
 	
 	
 	public String toString() {
-		return "Individu : " + this.ind.get(0) + " / " + this.ind.get(1);
+		return "Individu : " + this.ind.get(0) + " / " + this.ind.get(1) +" / " + this.getScore();
 	}
 
 }
