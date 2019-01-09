@@ -38,6 +38,10 @@ public class main {
 		for(Vector v : list_parents) {
 			System.out.println("Vector : (" + v.get(0) + ", " + v.get(1) + ")");
 		}
+		
+		for(Individu ind : pop.getPopulation()) {
+			System.out.println(ind.toString());
+		}
 	}
 
 }

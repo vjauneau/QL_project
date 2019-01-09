@@ -21,13 +21,13 @@ public class SelectionRang extends Selection{
 	public List<Vector<Individu>> selectionPaires(Population pop) {
 				
 		int nb_enfants = 4;
-		List<Individu> individus = pop.getPopulation();
+		List<Individu> individus = new ArrayList<>(pop.getPopulation());
 		
 		if(nb_enfants%2!=0)nb_enfants++;
 		
 		individus.sort(Comparator.comparing(Individu::getScore, Comparator.reverseOrder()));
 		individus = individus.subList(0, nb_enfants);
-				
+		
 		return listToPaires(individus);
 	}
 }
