@@ -1,9 +1,24 @@
 package Class;
 
-public class Evaluation {
+public class Evaluation extends Thread {
 	
-	public int evaluer(Individu i) {
-		return 0;
+	protected int pop_index;
+	private Thread thread;
+	private Population pop;
+	
+	public Evaluation(Population pop) {
+		this.pop = pop;
+		
+		for(Individu ind : pop.getPopulation()) {
+			ind.setScore(ind.evaluer());
+		}
+		
+		//this.pop_index = 
+
+		//this.thread.start();
+	}
+	
+	public void run() {
 		
 	}
 

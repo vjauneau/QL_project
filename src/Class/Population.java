@@ -11,6 +11,8 @@ import Applicatif.MyInd;
 * @since 1.0
 */
 public class Population {
+	
+	
 
 	private MyInd myInd ;
 	private List<Individu> population;
