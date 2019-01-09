@@ -20,17 +20,16 @@ public abstract class Selection {
 		
 		Random rand = new Random();
 		Individu selected_individu;
-		List<Individu> unselected_individus = individus;
 		List<Vector<Individu>> paires_parents = new ArrayList<>();
 		
-		while(!unselected_individus.isEmpty()) {
+		while(!individus.isEmpty()) {
 			
 			Vector<Individu> paire = new Vector<>();
 			
 			for(int j=0; j<2; j++) {
-				int randomIndex = rand.nextInt(unselected_individus.size());
-		        selected_individu = unselected_individus.get(randomIndex);
-		        unselected_individus.remove(selected_individu);
+				int randomIndex = rand.nextInt(individus.size());
+		        selected_individu = individus.get(randomIndex);
+		        individus.remove(selected_individu);
 		        paire.add(selected_individu);
 			}
 			
