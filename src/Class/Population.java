@@ -33,6 +33,12 @@ public class Population {
 		
 	}
 	
+	public Population(List<Individu> pop) {
+		this.population = pop;
+		this.nbIndividu = pop.size();
+		
+	}
+	
 	
 	/**
 	* Génère la population en fonction du nombre d'individus
@@ -71,6 +77,24 @@ public class Population {
 	}
 	
 	/**
+	* Fonction getMoreCompetent, retourne l'individu avec le plus haut score
+	* @return Individu avec le plus haut score parmis la population
+	* @author Vincent Jauneau
+	* @version 1.0
+	* @since 1.0
+	*/
+	public Individu getMoreCompetent() {
+        Individu moreCompetent = this.getIndividu(0);
+        // Loop through individuals to find more competent
+        for (int i = 0; i < this.nbIndividu; i++) {
+            if (moreCompetent.getScore() <= this.getIndividu(i).getScore()) {
+                moreCompetent = this.getIndividu(i);
+            }
+        }
+        return moreCompetent;
+	}
+	
+	/**
 	* Fonction getPopulation, retourne la population
 	* @return List<Individu> définissant la population
 	* @author Vincent Jauneau
@@ -79,6 +103,14 @@ public class Population {
 	*/
 	public List<Individu> getPopulation(){
 		return this.population;
+	}
+
+	public int getNbIndividu() {
+		return nbIndividu;
+	}
+
+	public void setNbIndividu(int nbIndividu) {
+		this.nbIndividu = nbIndividu;
 	}
 	
 	
