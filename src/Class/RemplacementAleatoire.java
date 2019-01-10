@@ -4,13 +4,22 @@ import java.util.List;
 import java.util.Random;
 
 /**
-* Individu de l'algo génétique, contient la méthode d'évaluation
+* Remplacement Aleatoire, implémente Remplacement. 
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
 */
 public class RemplacementAleatoire extends Remplacement {
 
+	/**
+	* Remplace n individu dans la population de base par la population d'ajout
+	* @param1 Population de base 
+	* @param2 Nouveaux individus à ajouter / remplacer
+	* @return Nouvelle population
+	* @author Vincent Jauneau
+	* @version 1.0
+	* @since 1.0
+	*/
 	@Override
 	public Population remplacer(Population oldpop, Population ajout) {
 		

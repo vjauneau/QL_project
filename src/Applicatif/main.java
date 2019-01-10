@@ -6,6 +6,9 @@ import java.util.Vector;
 import Class.Evaluation;
 import Class.Individu;
 import Class.Population;
+import Class.Remplacement;
+import Class.RemplacementAleatoire;
+import Class.RemplacementRang;
 import Class.Selection;
 import Class.SelectionRang;
 
@@ -23,7 +26,8 @@ public class main {
 		
 		System.out.println("Evaluation");
 		
-		Evaluation eval = new Evaluation(pop);
+		Evaluation eval = new Evaluation();
+		eval.evaluer(pop);
 		
 		for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
@@ -42,6 +46,18 @@ public class main {
 		for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
 		}
+		
+		Population ajout = new Population(2, myInd);
+		eval.evaluer(ajout);
+		
+		Remplacement remplacement = new RemplacementAleatoire();
+		
+		pop = remplacement.remplacer(pop, ajout );
+		System.out.println("Remplacement");
+		for(Individu ind : pop.getPopulation()) {
+			System.out.println(ind.toString());
+		}
+		
 	}
 
 }

@@ -18,6 +18,18 @@ public class Evaluation extends Thread {
 		//this.thread.start();
 	}
 	
+	public Evaluation() {
+		
+	}
+	
+	public void evaluer(Population pop) {
+		for(Individu ind : pop.getPopulation()) {
+			ind.setScore(ind.evaluer());
+		}		
+	}
+	
+	
+	
 	public void run() {
 		
 	}

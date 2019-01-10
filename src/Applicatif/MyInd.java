@@ -32,6 +32,10 @@ public class MyInd extends Individu {
 	{
 		return ind;
 	}
+	
+	public Integer getGene(int idx) {
+		return ind.get(idx);
+	}
 		
 	
 	@Override
