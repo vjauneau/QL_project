@@ -12,7 +12,7 @@ import Class.Individu;
 */
 public class MyInd extends Individu {
 
-	private Vector<Integer> ind;
+	private Vector<Integer> ind = new Vector<Integer>();
 	
 	public MyInd(Integer gene1, Integer gene2)
 	{

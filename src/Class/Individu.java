@@ -23,6 +23,10 @@ public abstract class Individu {
 		this.score = score;
 	}
 	
+	public abstract Integer getGene(int idx);
+	
+	
+	
 	// public abstract Vector<Integer> createIndividu();
 	
 

@@ -3,6 +3,7 @@ package Applicatif;
 import java.util.List;
 import java.util.Vector;
 
+import Class.Croisement;
 import Class.Evaluation;
 import Class.Individu;
 import Class.Population;
@@ -46,6 +47,14 @@ public class main {
 		for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
 		}
+		
+		System.out.println("Croisement");
+		Croisement croisement = new Croisement();
+		croisement.croisementIndividus(list_parents);
+		System.out.println("Croisement");
+		
+	
+		
 		
 		Population ajout = new Population(2, myInd);
 		eval.evaluer(ajout);
