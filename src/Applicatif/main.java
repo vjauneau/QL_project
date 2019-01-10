@@ -48,12 +48,9 @@ public class main {
 			System.out.println(ind.toString());
 		}
 		
-		System.out.println("Croisement");
+		System.out.println("Croisement : ");
 		Croisement croisement = new Croisement();
 		croisement.croisementIndividus(list_parents);
-		System.out.println("Croisement");
-		
-	
 		
 		
 		Population ajout = new Population(2, myInd);
