@@ -3,6 +3,7 @@ package Applicatif;
 import Class.Algo;
 import Class.Individu;
 import Class.Remplacement;
+import Class.RemplacementAleatoire;
 import Class.RemplacementRang;
 import Class.Selection;
 import Class.SelectionRang;

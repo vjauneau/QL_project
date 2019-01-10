@@ -14,7 +14,7 @@ import java.util.Vector;
 
 public abstract class Selection {
 	
-	public abstract List<Vector<Individu>> selectionPaires(Population pop);
+	public abstract List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants);
 	
 	public List<Vector<Individu>> listToPaires(List<Individu> individus){
 		

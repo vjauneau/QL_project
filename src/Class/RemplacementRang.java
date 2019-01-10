@@ -27,7 +27,7 @@ public class RemplacementRang extends Remplacement {
 		List<Individu> newPop = oldpop.getPopulation();
 		newPop.addAll(ajout.getPopulation());
 		newPop.sort(Comparator.comparing(Individu::getScore));
-		List<Individu> toRemove = newPop.subList(0, ajout.getNbIndividu()-1);
+		List<Individu> toRemove = newPop.subList(0, ajout.getNbIndividu());
 		newPop.removeAll(toRemove);
 		Population newPopu = new Population(newPop);
 		return newPopu;

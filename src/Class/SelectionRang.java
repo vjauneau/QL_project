@@ -18,9 +18,9 @@ public class SelectionRang extends Selection{
 	 * @return Retourne les Nb_enfants individus avec les meilleurs scores d'adaptation.
 	 */
 	@Override
-	public List<Vector<Individu>> selectionPaires(Population pop) {
+	public List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants) {
 				
-		int nb_enfants = 4;
+		int nb_enfants = nbEnfants;
 		List<Individu> individus = new ArrayList<>(pop.getPopulation());
 		
 		if(nb_enfants%2!=0)nb_enfants++;

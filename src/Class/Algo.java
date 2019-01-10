@@ -27,7 +27,7 @@ public class Algo {
 		
 		Selection selec = typeSelection;
 		
-		List<Vector<Individu>> list_parents = selec.selectionPaires(pop);
+		List<Vector<Individu>> list_parents = selec.selectionPaires(pop,4);
 		
 		for(Vector v : list_parents) {
 			System.out.println("Vector : (" + v.get(0) + ", " + v.get(1) + ")");
