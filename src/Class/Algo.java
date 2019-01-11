@@ -5,9 +5,15 @@ import java.util.Vector;
 
 public class Algo {
 	
+	private Population pop;
+	private Integer nIteration;	
+	private Integer nIterationSamePop;	
+	private Integer nIterationSameWinner;	
+	private Boolean TimerValidate = false;
+
+
 	public void run(Individu IndividuReference, Selection typeSelection, Remplacement typeRemplacement) {
-		
-		Population pop = new Population(5, IndividuReference );
+		this.pop = new Population(5, IndividuReference );
 		
 		for(Individu ind : pop.getPopulation()) {
 			ind.setScore(ind.evaluer());
@@ -54,5 +60,50 @@ public class Algo {
 		}
 		
 	}
+
+	public Integer getnIterationSamePop() {
+		return nIterationSamePop;
+	}
+
+	public void setnIterationSamePop(Integer nIterationSamePop) {
+		this.nIterationSamePop = nIterationSamePop;
+	}
+
+	public Integer getnIterationSameWinner() {
+		return nIterationSameWinner;
+	}
+
+	public void setnIterationSameWinner(Integer nIterationSameWinner) {
+		this.nIterationSameWinner = nIterationSameWinner;
+	}
+
+	public Integer getnIteration() {
+		return nIteration;
+	}
+
+	public void setnIteration(Integer nIteration) {
+		this.nIteration = nIteration;
+	}
+	
+	public Population getPop() {
+		return pop;
+	}
+
+	public void setPop(Population pop) {
+		this.pop = pop;
+	}
+	
+	public Boolean getTimerValidate() {
+		return TimerValidate;
+	}
+
+	public void setTimerValidate(Boolean timerValidate) {
+		TimerValidate = timerValidate;
+	}
+	
+	public Individu getWinner() {
+		return this.pop.getMoreCompetent();
+	}
+	
 
 }
