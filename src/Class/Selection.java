@@ -16,6 +16,11 @@ public abstract class Selection {
 	
 	public abstract List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants);
 	
+	/**
+	 * Créer une liste de paires d'individu à partir d'une liste d'individu.
+	 * @param individus : liste des individus à transformer en liste de paire.
+	 * @return paires_parents : liste de paires d'individus.
+	 */
 	public List<Vector<Individu>> listToPaires(List<Individu> individus){
 		
 		Random rand = new Random();

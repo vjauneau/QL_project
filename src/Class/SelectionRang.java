@@ -6,16 +6,17 @@ import java.util.List;
 import java.util.Vector;
 
 /**
-* Choisit toujours les individus possédant les meilleurs scores d'adaptation.
+* Choisit toujours les individus possédants les meilleurs scores d'adaptation.
 * @author Léo Courson
 * @version 1.0
 * @since 1.0
 */
 public class SelectionRang extends Selection{
 	/**
-	 * Récupère les Nb_enfants individus avec les meilleurs scores d'adaptation.
-	 * @param pop Population de la simulation.
-	 * @return Retourne les Nb_enfants individus avec les meilleurs scores d'adaptation.
+	 * Sélectionne les parents ayant les meilleurs scores d'adaptation de la population.
+	 * @param1 pop : Population de la simulation.
+	 * @param2 nbEnfants : nombre de nouveaux individus dans la population.
+	 * @return listToPaires(individus) : liste de paire des parents avec les meilleurs scores d'adaptation.
 	 */
 	@Override
 	public List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants) {
