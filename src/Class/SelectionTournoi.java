@@ -6,8 +6,9 @@ import java.util.Random;
 import java.util.Vector;
 
 /**
-* Sélection proportionnelle sur des paires d'individus, puis choisit parmi ces paires l'individu qui à le meilleur score d'adaptation.
-* @author Léo Courson
+* Sélection tournoi
+* Selection de deux individus au hasard puis selection d'un gagnant sur ces paires d'individus.
+* @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
 */
@@ -29,6 +30,7 @@ public class SelectionTournoi extends Selection{
 			Population tournoi = new Population(tournoiInd);
 			Individu winner = tournoi.getMoreCompetent();		
 			selected.add(winner);
+			individus.remove(winner);
 			
 		}		
 		return listToPaires(selected);
