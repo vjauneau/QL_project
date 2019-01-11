@@ -1,5 +1,8 @@
 package Class;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
 * Conditions d'arrêt de l'algo
 * @author Vincent Jauneau
@@ -8,9 +11,22 @@ package Class;
 */
 public class Stop {
 	
-	private Boolean isNTourAtteint() {
-		return null;
-		
+	List<StopCondition> stopConditions;
+	
+	public Stop() {
+		this.stopConditions = new ArrayList<>();
 	}
-
+	
+	public Boolean isFinished() {
+		
+		for(StopCondition sc : this.stopConditions) {
+			if(sc.isValidate()) return true;
+		}
+		
+		return false;
+	}
+	
+	
+	
+	
 }

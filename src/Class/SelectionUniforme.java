@@ -14,9 +14,10 @@ import java.util.Vector;
 */
 public class SelectionUniforme extends Selection{
 	/**
-	 * Récupère les Nb_enfants individus avec les meilleurs scores d'adaptation.
-	 * @param pop Population de la simulation.
-	 * @return Retourne les Nb_enfants individus avec les meilleurs scores d'adaptation.
+	 * Sélectionne les parents de façon aléatoire.
+	 * @param1 pop : Population de la simulation.
+	 * @param2 nbEnfants : nombre de nouveaux individus dans la population.
+	 * @return listToPaires(individus) : liste de paire des parents.
 	 */
 	@Override
 	public List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants) {
