@@ -22,7 +22,9 @@ public class SelectionTournoi extends Selection{
 		if(nb_enfants%2!=0)nb_enfants++;
 		List<Individu> individus = new ArrayList<>(pop.getPopulation());
 		List<Individu> selected = new ArrayList<>();
+
 		for(int i = 0; i < nbEnfants; i++) {
+
 			List<Individu> tournoiInd = new ArrayList<>();
 			tournoiInd.add(individus.get(rand.nextInt(individus.size())));
 			tournoiInd.add(individus.get(rand.nextInt(individus.size())));
