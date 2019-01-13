@@ -15,7 +15,7 @@ public class Evaluation {
 	private List<Thread> threads;
 	
 	/**
-	* Constructeur de Evaluation : créer les threads.
+	* Constructeur de Evaluation : créer les threads d'évaluation.
 	* @param1 pop : Population de la simulation à évaluer.
 	* @param2 nb_thread : Nombre de thread à créer.
 	* @author Léo Courson
@@ -33,7 +33,7 @@ public class Evaluation {
 	}
 	
 	/**
-	* Lance les threads pour évaluer la population pop.
+	* Exécute les threads pour évaluer la population pop.
 	* @author Léo Courson
 	* @version 1.0
 	* @since 1.0

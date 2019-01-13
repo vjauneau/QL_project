@@ -14,7 +14,7 @@ public class EvaluationThread extends Thread {
 	
 	/**
 	* Constructeur de EvaluationThread : créer un thread d'évaluation.
-	* @param1 individus : Liste d'individu à évaluer.
+	* @param1 individus : Liste des individus à évaluer.
 	* @author Léo Courson
 	* @version 1.0
 	* @since 1.0
