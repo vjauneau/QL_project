@@ -1,37 +1,55 @@
 package Class;
 
-public class Evaluation extends Thread {
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+* Class Evaluation : Créer les threads pour évaluer une population.
+* @author Léo Courson
+* @version 1.0
+* @since 1.0
+*/
+public class Evaluation {
 	
-	protected int pop_index;
-	private Thread thread;
-	private Population pop;
+	private List<Individu> individus;
+	private List<Thread> threads;
 	
-	public Evaluation(Population pop) {
-		this.pop = pop;
+	/**
+	* Constructeur de Evaluation : créer les threads.
+	* @param1 pop : Population de la simulation à évaluer.
+	* @param2 nb_thread : Nombre de thread à créer.
+	* @author Léo Courson
+	* @version 1.0
+	* @since 1.0
+	*/
+	public Evaluation(Population pop, int nb_thread) {
 		
-		for(Individu ind : pop.getPopulation()) {
-			ind.setScore(ind.evaluer());
+		this.individus = new ArrayList<>(pop.getPopulation());
+		this.threads = new ArrayList<>();
+		
+		for(int i=0; i<nb_thread; i++) {
+			this.threads.add(new EvaluationThread(individus));
 		}
+	}
+	
+	/**
+	* Lance les threads pour évaluer la population pop.
+	* @author Léo Courson
+	* @version 1.0
+	* @since 1.0
+	*/
+	public void evaluer() {
+		try {
+			for(Thread thread : threads) {
+				thread.start();
+			}
+			for(Thread thread : threads) {
+				thread.join();
+			}
+		} 
 		
-		//this.pop_index = 
-
-		//this.thread.start();
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}	
 	}
-	
-	public Evaluation() {
-		
-	}
-	
-	public void evaluer(Population pop) {
-		for(Individu ind : pop.getPopulation()) {
-			ind.setScore(ind.evaluer());
-		}		
-	}
-	
-	
-	
-	public void run() {
-		
-	}
-
 }

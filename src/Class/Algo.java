@@ -13,27 +13,26 @@ public class Algo {
 
 
 	public void run(Individu IndividuReference, Selection typeSelection, Remplacement typeRemplacement) {
-		this.pop = new Population(5, IndividuReference );
 		
-		for(Individu ind : pop.getPopulation()) {
-			ind.setScore(ind.evaluer());
-			System.out.println(ind.toString());
-		}
-		
-		System.out.println("Evaluation");
-		
-		Evaluation eval = new Evaluation();
-		eval.evaluer(pop);
+		this.pop = new Population(5, IndividuReference);
 		
 		for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
 		}
 		
-		System.out.println("Selection");
+		System.out.println("EVALUATION");		
+
+		Evaluation eval = new Evaluation(pop, 2);
+		eval.evaluer();
+		
+		for(Individu ind : pop.getPopulation()) {
+			System.out.println(ind.toString());
+		}
+		
+		System.out.println("SELECTION");
 		
 		Selection selec = typeSelection;
-		
-		List<Vector<Individu>> list_parents = selec.selectionPaires(pop,4);
+		List<Vector<Individu>> list_parents = selec.selectionPaires(pop, 4);
 		
 		for(Vector v : list_parents) {
 			System.out.println("Vector : (" + v.get(0) + ", " + v.get(1) + ")");
@@ -43,18 +42,20 @@ public class Algo {
 			System.out.println(ind.toString());
 		}
 		
-		System.out.println("Croisement : ");
+		System.out.println("CROISEMENT");
+
 		Croisement croisement = new Croisement();
 		List<Individu> enfants  = croisement.croisementIndividus(list_parents);
 		
-		
 		Population ajout = new Population(enfants);
-		eval.evaluer(ajout);
+		eval = new Evaluation(ajout, 2);
+		eval.evaluer();
+		
+		System.out.println("REMPLACEMENT");
 		
 		Remplacement remplacement = typeRemplacement;
+		pop = remplacement.remplacer(pop, ajout);
 		
-		pop = remplacement.remplacer(pop, ajout );
-		System.out.println("Remplacement");
 		for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
 		}
@@ -104,6 +105,4 @@ public class Algo {
 	public Individu getWinner() {
 		return this.pop.getMoreCompetent();
 	}
-	
-
 }
