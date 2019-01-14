@@ -1,5 +1,12 @@
 package Class;
 
+
+/**
+* Class StopConditionSameWinner, retourne vrai si le maillon fort de la population est inchangée depuis n itérations
+* @author Vincent Jauneau
+* @version 1.0
+* @since 1.0
+*/
 public class StopConditionSameWinner extends StopCondition{
 
 	
