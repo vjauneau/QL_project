@@ -32,13 +32,18 @@ public class EvaluationThread extends Thread {
 	*/
 	public void run() {
 		
-		Individu ind;
-		while(!unevaluated_individus.isEmpty()) {
+		Individu ind = null;
+		Boolean list_empty = false;
+		
+		while(!list_empty) {
 			synchronized(unevaluated_individus) {
-				ind = unevaluated_individus.get(0);
-				unevaluated_individus.remove(ind);
+				if(!unevaluated_individus.isEmpty()) {
+					ind = unevaluated_individus.get(0);
+					unevaluated_individus.remove(ind);
+				}
+				else list_empty = true;				
 			}
-			ind.setScore(ind.evaluer());
+			if(ind != null)ind.setScore(ind.evaluer());
 		}
 	}
 }
