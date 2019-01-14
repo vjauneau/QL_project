@@ -19,8 +19,8 @@ public class StopConditionSamePopulation extends StopCondition{
 	* @param algo : Algorithme associé à la condition d'arrêt
 	*/
 	public StopConditionSamePopulation(Algo algo) {
+
 		super(algo);
-		
 	}
 	
 	/**
