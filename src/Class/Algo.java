@@ -32,50 +32,48 @@ public class Algo {
 		// 2 Secondes
 		timer.schedule(timerTask, 2000);
 		
-		
 		do {
+			/*for(Individu ind : pop.getPopulation()) {
+				System.out.println(ind.toString());
+			}*/
 			
-		
-		/*for(Individu ind : pop.getPopulation()) {
-			System.out.println(ind.toString());
-		}*/
-		
-		System.out.println("EVALUATION");		
-
-		Evaluation eval = new Evaluation(pop, 2);
-		eval.evaluer();
-		
-		/*for(Individu ind : pop.getPopulation()) {
-			System.out.println(ind.toString());
-		}*/
-		
-		System.out.println("SELECTION");
-		
-		Selection selec = typeSelection;
-		List<Vector<Individu>> list_parents = selec.selectionPaires(pop, 2000);
-		
-		/*for(Vector<Individu> v : list_parents) {
-			System.out.println("Vector : (" + v.get(0) + ", " + v.get(1) + ")");
-		}*/
-		
-		/*for(Individu ind : pop.getPopulation()) {
-			System.out.println(ind.toString());
-		}*/
-		
-		System.out.println("CROISEMENT");
-
-		Croisement croisement = new Croisement();
-		List<Individu> enfants  = croisement.croisementIndividus(list_parents);
-		
-		Population ajout = new Population(enfants);
-		eval = new Evaluation(ajout, 2);
-		eval.evaluer();
-		
-		System.out.println("REMPLACEMENT");
-		
-		Remplacement remplacement = typeRemplacement;
-		pop = remplacement.remplacer(pop, ajout);
-		}while(!stop.isFinished());
+			System.out.println("EVALUATION");		
+	
+			Evaluation eval = new Evaluation(pop, 2);
+			eval.evaluer();
+			
+			/*for(Individu ind : pop.getPopulation()) {
+				System.out.println(ind.toString());
+			}*/
+			
+			System.out.println("SELECTION");
+			
+			Selection selec = typeSelection;
+			List<Vector<Individu>> list_parents = selec.selectionPaires(pop, 2000);
+			
+			/*for(Vector<Individu> v : list_parents) {
+				System.out.println("Vector : (" + v.get(0) + ", " + v.get(1) + ")");
+			}*/
+			
+			/*for(Individu ind : pop.getPopulation()) {
+				System.out.println(ind.toString());
+			}*/
+			
+			System.out.println("CROISEMENT");
+	
+			Croisement croisement = new Croisement();
+			List<Individu> enfants  = croisement.croisementIndividus(list_parents);
+			
+			Population ajout = new Population(enfants);
+			eval = new Evaluation(ajout, 2);
+			eval.evaluer();
+			
+			System.out.println("REMPLACEMENT");
+			
+			Remplacement remplacement = typeRemplacement;
+			pop = remplacement.remplacer(pop, ajout);
+		}
+		while(!stop.isFinished());
 		
 		/*for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
