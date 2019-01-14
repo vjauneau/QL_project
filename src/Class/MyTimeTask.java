@@ -14,10 +14,18 @@ public class MyTimeTask extends TimerTask {
 	
 	Algo algo;
 	
+	/**
+	* Constructeur de MyTimeTask
+	* @param algo : 
+	*/
 	public MyTimeTask(Algo algo) {
-		 this.algo = algo;
-	 }
-	 
+
+		this.algo = algo;
+	}
+	
+	/**
+	* 
+	*/
 	@Override
 	public void run() {
 		System.out.println("validate Timer");

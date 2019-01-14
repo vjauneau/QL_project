@@ -7,18 +7,20 @@ import java.util.Vector;
 import Applicatif.MyInd;
 
 /**
- * Classe qui permet de réaliser le croisement entre une paire d'invidu
+ * Réalise le croisement de paire d'individu pour en créer de nouveau
  * @author Quentin Chouteau
  * @version 1.0
  * @since 1.0
+ * @see Evolution
  */
 public class Croisement extends Evolution {
+
     /**
-     * 
-     * @param En entrée on récupère les apires de parents
-     * @return enfants. On retourne la liste des enfants créer par ce croisement
+     * Croise des idnividus (les parents) pour créer de nouveau individus (les enfants)
+     * @param pairesParents : paires de parents
+     * @return List<Individu>  : liste des enfants créer par le croisement
      */
-	public  List<Individu> croisementIndividus(List<Vector<Individu>> pairesParents) {
+	public List<Individu> croisementIndividus(List<Vector<Individu>> pairesParents) {
 		
 		List<Individu> enfants = new ArrayList<>();
 		for(Vector<Individu> v : pairesParents)
