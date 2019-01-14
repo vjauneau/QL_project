@@ -4,11 +4,13 @@ import java.util.Random;
 import java.util.Vector;
 
 import Class.Individu;
+
 /**
 * Individu de l'algo génétique, contient la méthode d'évaluation
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
+* @see Individu
 */
 public class MyInd extends Individu {
 
@@ -22,6 +24,7 @@ public class MyInd extends Individu {
 	 * @param gene2 : gène n°2 de l'individu
 	 */
 	public MyInd(Integer gene1, Integer gene2) {
+
 		this.ind.add(gene1);
 		this.ind.add(gene2);
 	}
@@ -32,6 +35,7 @@ public class MyInd extends Individu {
 	 * @param Vector<Integer> ind : gènes de l'individu à créer
 	 */
 	public MyInd(Vector<Integer> ind) {
+
 		this.ind = ind;
 	}
 	
@@ -46,6 +50,7 @@ public class MyInd extends Individu {
 	 * @return Vector<Integer> : gènes de l'individu
 	 */
 	public Vector<Integer> getGenes() {
+
 		return ind;
 	}
 	
@@ -54,6 +59,7 @@ public class MyInd extends Individu {
 	 * @return Integer : retourne un gène de l'individu
 	 */
 	public Integer getGene(int idx) {
+
 		return ind.get(idx);
 	}
 		
@@ -63,6 +69,7 @@ public class MyInd extends Individu {
 	 */
 	@Override
 	public double evaluer() {
+
 		return (this.ind.get(0)*this.ind.get(0) - this.ind.get(1)*this.ind.get(1));
 	}
 	
@@ -71,6 +78,7 @@ public class MyInd extends Individu {
 	 * @return Vector<Integer> : gènes de l'individu
 	 */
 	public Vector<Integer> createIndividu() {
+
 		Random rand = new Random();
 		Vector<Integer> ind = new Vector<>();
 		
@@ -83,8 +91,10 @@ public class MyInd extends Individu {
 	/**
 	 * Fonction qui permet d'afficher un individu sous la forme String
 	 * @return String : description de l'individu
+	 * @see Individu.getScore()
 	 */
 	public String toString() {
+
 		return "Individu : " + this.ind.get(0) + " / " + this.ind.get(1) +" / " + this.getScore();
 	}
 

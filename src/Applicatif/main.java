@@ -20,8 +20,6 @@ public class main {
 		Algo algo = new Algo();
 		
 		algo.run(myInd, selection, remplacement);
-
-		
 	}
 
 }

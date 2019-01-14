@@ -20,6 +20,7 @@ public class SelectionRang extends Selection{
 	 * @param pop : population de la simulation
 	 * @param nbEnfants : nombre de nouveaux individus dans la population
 	 * @return listToPaires(individus) : liste de paire des parents
+	 * @see Evaluation.listToPaires()
 	 */
 	@Override
 	public List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants) {
@@ -34,4 +35,5 @@ public class SelectionRang extends Selection{
 		
 		return listToPaires(individus);
 	}
+
 }

@@ -12,7 +12,6 @@ import java.util.Vector;
 * @since 1.0
 * @see SelectionRang, SelectionTournoi, SelectionUniforme
 */
-
 public abstract class Selection {
 	
 	/**
@@ -51,4 +50,5 @@ public abstract class Selection {
 		
 		return paires_parents;
 	}
+
 }
