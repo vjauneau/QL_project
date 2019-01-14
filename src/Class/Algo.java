@@ -1,6 +1,8 @@
 package Class;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
 public class Algo {
@@ -14,33 +16,51 @@ public class Algo {
 
 	public void run(Individu IndividuReference, Selection typeSelection, Remplacement typeRemplacement) {
 		
-		this.pop = new Population(5, IndividuReference);
+		this.nIteration = 200;
+		this.nIterationSamePop = 2;
+		this.nIterationSameWinner = 2;
+		TimerTask timerTask = new MyTimeTask(this);
+		Timer timer = new Timer(true);
 		
-		for(Individu ind : pop.getPopulation()) {
+		Stop stop = new Stop();
+		stop.addStopCondtion(new StopCondtionNIterations(this));
+		stop.addStopCondtion(new StopConditionSamePopulation(this));
+		stop.addStopCondtion(new StopConditionSameWinner(this));
+		stop.addStopCondtion(new StopConditionTimer(this));
+		this.pop = new Population(10000, IndividuReference);
+		
+		// 2 Secondes
+		timer.schedule(timerTask, 2000);
+		
+		
+		do {
+			
+		
+		/*for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
-		}
+		}*/
 		
 		System.out.println("EVALUATION");		
 
 		Evaluation eval = new Evaluation(pop, 2);
 		eval.evaluer();
 		
-		for(Individu ind : pop.getPopulation()) {
+		/*for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
-		}
+		}*/
 		
 		System.out.println("SELECTION");
 		
 		Selection selec = typeSelection;
-		List<Vector<Individu>> list_parents = selec.selectionPaires(pop, 4);
+		List<Vector<Individu>> list_parents = selec.selectionPaires(pop, 2000);
 		
-		for(Vector<Individu> v : list_parents) {
+		/*for(Vector<Individu> v : list_parents) {
 			System.out.println("Vector : (" + v.get(0) + ", " + v.get(1) + ")");
-		}
+		}*/
 		
-		for(Individu ind : pop.getPopulation()) {
+		/*for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
-		}
+		}*/
 		
 		System.out.println("CROISEMENT");
 
@@ -55,10 +75,11 @@ public class Algo {
 		
 		Remplacement remplacement = typeRemplacement;
 		pop = remplacement.remplacer(pop, ajout);
+		}while(!stop.isFinished());
 		
-		for(Individu ind : pop.getPopulation()) {
+		/*for(Individu ind : pop.getPopulation()) {
 			System.out.println(ind.toString());
-		}
+		}*/
 		
 	}
 

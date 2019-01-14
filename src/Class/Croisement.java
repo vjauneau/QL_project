@@ -29,10 +29,10 @@ public class Croisement extends Evolution {
 		
 		/** Tests **/
 		int j=1;
-		for(Individu i : enfants) {	
+		/*for(Individu i : enfants) {	
 			System.out.println("Enfant " + j+ ": [" +i.getGene(0) +"," + i.getGene(1) + "]");
 			j++;
-		}
+		}*/
 		
 		return enfants;
 	}

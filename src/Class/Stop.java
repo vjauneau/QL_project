@@ -11,12 +11,15 @@ import java.util.List;
 */
 public class Stop {
 	
-	List<StopCondition> stopConditions;
+	private List<StopCondition> stopConditions;
 	
 	public Stop() {
 		this.stopConditions = new ArrayList<>();
 	}
 	
+	public void addStopCondtion(StopCondition sc) {
+		this.stopConditions.add(sc);
+	}
 	public Boolean isFinished() {
 		
 		for(StopCondition sc : this.stopConditions) {

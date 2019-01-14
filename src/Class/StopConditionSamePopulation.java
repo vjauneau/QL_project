@@ -16,9 +16,13 @@ public class StopConditionSamePopulation extends StopCondition{
 	public Boolean isValidate() {
 		
 		if(this.pop != null) {
-			if(this.pop == this.algo.getPop()) {
+			if(this.pop.getPopulation().size() == this.algo.getPop().getPopulation().size() && this.pop.getPopulation().containsAll(this.algo.getPop().getPopulation())) {
 				this.iterations ++;
-				if(this.iterations >= this.algo.getnIterationSamePop()) return true;
+				if(this.iterations >= this.algo.getnIterationSamePop()) {
+					System.out.println("SamePop validate nIterations : " + this.iterations);
+					return true;
+					
+				}
 			}
 			else {
 				this.pop = this.algo.getPop();

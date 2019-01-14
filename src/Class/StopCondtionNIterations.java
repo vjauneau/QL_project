@@ -14,7 +14,11 @@ public class StopCondtionNIterations extends StopCondition {
 	public Boolean isValidate() {
 		this.iterations ++;
 		
-		if(this.iterations >= this.algo.getnIteration()) return true;
+		if(this.iterations >= this.algo.getnIteration())
+			 {
+				System.out.println("NIterations validate : " +this.iterations);
+				return true;
+			 }
 		else return false;
 	}
 

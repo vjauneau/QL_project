@@ -25,6 +25,13 @@ public abstract class Individu {
 	
 	public abstract Integer getGene(int idx);
 	
+	public Boolean equal(Individu i) {
+		if(this.getGene(0) == i.getGene(0) && this.getGene(1) == i.getGene(1) && this.getScore() == i.getScore()) {
+			return true;
+		}
+		else return false;
+	}
+	
 	
 	
 	// public abstract Vector<Integer> createIndividu();

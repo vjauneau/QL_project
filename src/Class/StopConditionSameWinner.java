@@ -15,9 +15,15 @@ public class StopConditionSameWinner extends StopCondition{
 	public Boolean isValidate() {
 		
 		if(this.winner != null) {
-			if(this.winner == this.algo.getWinner()) {
+			System.out.println(this.winner);
+			System.out.println(this.algo.getWinner());
+			if(this.winner.equal(this.algo.getWinner())){
 				this.iterations ++;
-				if(this.iterations >= this.algo.getnIterationSameWinner()) return true;
+				System.out.println("plop");
+				if(this.iterations >= this.algo.getnIterationSameWinner()) {
+					System.out.println("SameWinner validate nIterations : " + this.iterations);
+					return true;
+				}
 			}
 			else {
 				this.winner = this.algo.getWinner();

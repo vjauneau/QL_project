@@ -14,6 +14,7 @@ public class MyTimeTask extends TimerTask {
 	@Override
 	public void run() {
 		
+		System.out.println("validate Timer");
 		this.algo.setTimerValidate(true);
 		
 	}
