@@ -3,21 +3,19 @@ package Class;
 import java.util.List;
 
 /**
-* Class EvaluationThread : Thread d'évaluation.
+* Class EvaluationThread : Thread d'évaluation
 * @author Léo Courson
 * @version 1.0
 * @since 1.0
+* @see Evaluation
 */
 public class EvaluationThread extends Thread {
 
 	private List<Individu> unevaluated_individus;
 	
 	/**
-	* Constructeur de EvaluationThread : créer un thread d'évaluation.
-	* @param1 individus : Liste des individus à évaluer.
-	* @author Léo Courson
-	* @version 1.0
-	* @since 1.0
+	* Constructeur de EvaluationThread : créer un thread d'évaluation
+	* @param individus : Liste des individus à évaluer
 	*/
 	public EvaluationThread(List<Individu> individus) {
 		
@@ -25,10 +23,8 @@ public class EvaluationThread extends Thread {
 	}
 	
 	/**
-	* Fonctionnement d'un thread d'évaluation.
-	* @author Léo Courson
-	* @version 1.0
-	* @since 1.0
+	* Fonctionnement d'un thread d'évaluation
+	* @see Individu.evaluer(), Individu.setScore()
 	*/
 	public void run() {
 		

@@ -7,13 +7,20 @@ import java.util.Vector;
 
 /**
 * Sélection tournoi
-* Selection de deux individus au hasard puis selection d'un gagnant sur ces paires d'individus.
+* Sélectionne l'individu ayant le meilleur score d'adaptation parmis une paire d'individu
+* créée aléatoirement
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
 */
 public class SelectionTournoi extends Selection{
 
+	/**
+	 * Sélectionne les parents avec la strategie tournoi
+	 * @param pop : population de la simulation
+	 * @param nbEnfants : nombre de nouveaux individus dans la population
+	 * @return listToPaires(individus) : liste de paire des parents
+	 */
 	@Override
 	public List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants) {
 		
