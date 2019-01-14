@@ -23,7 +23,7 @@ public class Algo {
 		Timer timer = new Timer(true);
 		
 		Stop stop = new Stop();
-		stop.addStopCondtion(new StopCondtionNIterations(this));
+		stop.addStopCondtion(new StopConditionNIterations(this));
 		stop.addStopCondtion(new StopConditionSamePopulation(this));
 		stop.addStopCondtion(new StopConditionSameWinner(this));
 		stop.addStopCondtion(new StopConditionTimer(this));
