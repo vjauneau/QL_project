@@ -4,7 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
-* 
+* MyTimeTask est une classe qui sera passé au paramètre du timer afin 
+* d'éxecuter sa fonction run() à la fin de celui ci.
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
@@ -12,11 +13,11 @@ import java.util.TimerTask;
 */
 public class MyTimeTask extends TimerTask {
 	
-	Algo algo;
+	private Algo algo;
 	
 	/**
 	* Constructeur de MyTimeTask
-	* @param algo : 
+	* @param algo : Référence sur l'algorithme
 	*/
 	public MyTimeTask(Algo algo) {
 
@@ -24,7 +25,7 @@ public class MyTimeTask extends TimerTask {
 	}
 	
 	/**
-	* 
+	* Tache asynchrone afin de valider que le timer est fini
 	*/
 	@Override
 	public void run() {
