@@ -23,10 +23,10 @@ public class Algo {
 		Timer timer = new Timer(true);
 		
 		Stop stop = new Stop();
-		stop.addStopCondtion(new StopConditionNIterations(this));
-		stop.addStopCondtion(new StopConditionSamePopulation(this));
-		stop.addStopCondtion(new StopConditionSameWinner(this));
-		stop.addStopCondtion(new StopConditionTimer(this));
+		stop.addStopCondition(new StopConditionNIterations(this));
+		stop.addStopCondition(new StopConditionSamePopulation(this));
+		stop.addStopCondition(new StopConditionSameWinner(this));
+		stop.addStopCondition(new StopConditionTimer(this));
 		this.pop = new Population(10000, IndividuReference);
 		
 		// 2 Secondes

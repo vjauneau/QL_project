@@ -27,7 +27,7 @@ public class Stop {
 	* Fonction d'ajout de condition d'arrêt à la liste
 	* @param sc : condition d'arrêt
 	*/
-	public void addStopCondtion(StopCondition sc) {
+	public void addStopCondition(StopCondition sc) {
 
 		this.stopConditions.add(sc);
 	}
