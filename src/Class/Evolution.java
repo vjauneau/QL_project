@@ -8,7 +8,7 @@ import java.util.Vector;
 import Applicatif.MyInd;
 
 /**
- * Réalise le croisement de paire d'individu pour en créer de nouveau
+ * Classe qui permet de gérer l'évolution de la population
  * @author Quentin Chouteau
  * @version 1.0
  * @since 1.0
@@ -43,7 +43,7 @@ public class Evolution {
 		
 		/**
 		 * Mutation éventuelle des enfants
-		 * Le pourcentage de mutation est définie par l'utilisateur
+		 * Le pourcentage de mutation est défini par l'utilisateur
 		 */
 		for(Individu i : enfants)
 		{	
@@ -54,6 +54,7 @@ public class Evolution {
 				i.setGene(rand.nextInt(2), rand.nextInt(31));
 			}
 		}
+		
 		return enfants;
 	}
 
