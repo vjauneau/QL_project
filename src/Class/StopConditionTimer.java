@@ -7,7 +7,8 @@ package Class;
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
-* @see Algo, StopCondition
+* @see Algo
+* @see StopCondition
 */
 public class StopConditionTimer extends StopCondition {
 

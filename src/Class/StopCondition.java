@@ -8,7 +8,11 @@ package Class;
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
-* @see Algo, StopConditionNIterations, StopConditionSamePopulation, StopConditionSameWinner, StopConditionTimer
+* @see Algo
+* @see StopConditionNIterations
+* @see StopConditionSamePopulation
+* @see StopConditionSameWinner
+* @see StopConditionTimer
 */
 public abstract class StopCondition {
 	

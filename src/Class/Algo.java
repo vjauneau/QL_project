@@ -34,6 +34,17 @@ public class Algo {
 	/**
 	* Constructeur de l'algorithme
 	* Instancie les variables de l'algorithme
+	* @param nEnfants : nombre d'enfants
+	* @param pourcentageMutation : pourcentage de mutation
+	* @param nThread : nombre de thread pour l'évaluation
+	* @param populationSize : taille de la population
+	* @param nIteration : nombre d'itération de la condition d'arrêt NIterations
+	* @param nIterationSamePop : nombre d'itération de la condition d'arrêt SamePopulation
+	* @param nIterationSameWinner : nombre d'itération de la condition d'arrêt SameWinner
+	* @param timerSecond : temps de la condition d'arrêt Timer
+	* @param individuReference : individu de référence de la population
+	* @param typeSelection : mode de sélection
+	* @param typeRemplacement : mode de remplacement
 	*/
 	public Algo(Integer nEnfants,
 				Integer pourcentageMutation,

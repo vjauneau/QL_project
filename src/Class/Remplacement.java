@@ -5,7 +5,8 @@ package Class;
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
-* @see RemplacementAleatoire, RemplacementRang
+* @see RemplacementAleatoire
+* @see RemplacementRang
 */
 public abstract interface Remplacement {
 	

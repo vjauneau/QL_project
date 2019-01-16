@@ -9,7 +9,7 @@ import java.util.List;
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
-* @see StopConditions
+* @see StopCondition
 */
 public class Stop {
 	

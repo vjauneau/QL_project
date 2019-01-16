@@ -136,9 +136,9 @@ public class AlgoBuilder {
     
 	/**
 	* Définit le nombre d'iteration de la condition d'arrêt StopConditionNIteration
-	* @param _nIterationSamePop : nombre d'iteration
+	* @param _nIteration : nombre d'iteration
 	* @return AlgoBuilder : Builder of the Algo
-	* @see StopConditionNIteration
+	* @see StopConditionNIterations
 	*/
     public AlgoBuilder nIteration(Integer _nIteration)
     {

@@ -16,9 +16,11 @@ import Applicatif.MyInd;
 public class Evolution {
 
     /**
-     * Classe qui gère l'évolution de la population (croisement & mutation)
-     * @param pairesParents : paires de parents, nbEnfants; pourcentage de mutation
-     * @return List<Individu>  : liste des enfants créer par le croisement
+     * Classe qui gère l'évolution de la population (croisement et mutation)
+     * @param pairesParents : paires de parents
+     * @param nbEnfants : nombre d'enfant
+     * @param pourcentage : pourcentage de mutation
+     * @return List : liste des enfants créer par le croisement
      */
 	public List<Individu> croisementMutationIndividus(List<Vector<Individu>> pairesParents, int nbEnfants, double pourcentage) {
 		

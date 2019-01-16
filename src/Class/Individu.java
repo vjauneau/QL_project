@@ -8,7 +8,7 @@ import java.util.Vector;
 * @author Vincent Jauneau
 * @version 1.0
 * @since 1.0
-* @see MyInd
+* @see Applicatif.MyInd
 */
 public abstract class Individu {
 	

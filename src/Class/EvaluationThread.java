@@ -24,7 +24,8 @@ public class EvaluationThread extends Thread {
 	
 	/**
 	* Fonctionnement d'un thread d'évaluation
-	* @see Individu.evaluer(), Individu.setScore()
+	* @see Individu#evaluer()
+	* @see Individu#setScore(double)
 	*/
 	@Override
 	public void run() {

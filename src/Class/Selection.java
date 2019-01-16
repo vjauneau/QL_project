@@ -10,7 +10,9 @@ import java.util.Vector;
 * @author Léo Courson
 * @version 1.0
 * @since 1.0
-* @see SelectionRang, SelectionTournoi, SelectionUniforme
+* @see SelectionRang
+* @see SelectionTournoi
+* @see SelectionUniforme
 */
 public abstract class Selection {
 	

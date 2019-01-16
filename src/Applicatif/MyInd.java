@@ -32,7 +32,7 @@ public class MyInd extends Individu {
 	/**
 	 * Constructeur d'individu
 	 * Constructeur qui prend en paramètres le vecteur de gène ind
-	 * @param Vector<Integer> ind : gènes de l'individu à créer
+	 * @param ind : gènes de l'individu à créer
 	 */
 	public MyInd(Vector<Integer> ind) {
 
@@ -47,7 +47,7 @@ public class MyInd extends Individu {
 	
 	/**
 	 * Permet de retourner le vecteur de gènes d'un individu
-	 * @return Vector<Integer> : gènes de l'individu
+	 * @return Vector : gènes de l'individu
 	 */
 	public Vector<Integer> getGenes() {
 
@@ -80,7 +80,7 @@ public class MyInd extends Individu {
 	
 	/**
 	 * Méthode de création d'un individu
-	 * @return Vector<Integer> : gènes de l'individu
+	 * @return Vector : gènes de l'individu
 	 */
 	public Vector<Integer> createIndividu() {
 
@@ -96,7 +96,7 @@ public class MyInd extends Individu {
 	/**
 	 * Fonction qui permet d'afficher un individu sous la forme String
 	 * @return String : description de l'individu
-	 * @see Individu.getScore()
+	 * @see Individu#getScore()
 	 */
 	public String toString() {
 

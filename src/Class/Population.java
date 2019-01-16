@@ -41,7 +41,7 @@ public class Population {
 	
 	/**
 	* Génère la population en fonction du nombre d'individus
-	* @see MyInd.createIndividu()
+	* @see MyInd#createIndividu()
 	*/
 	private void generatePopulation() {
 
@@ -78,7 +78,7 @@ public class Population {
 	
 	/**
 	* Fonction getPopulation, retourne la population
-	* @return List<Individu> : individus constituant la population
+	* @return List : individus constituant la population
 	*/
 	public List<Individu> getPopulation(){
 

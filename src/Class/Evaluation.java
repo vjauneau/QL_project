@@ -18,7 +18,7 @@ public class Evaluation {
 	/**
 	* Constructeur de Evaluation : créer les threads d'évaluation
 	* @param pop : Population de la simulation à évaluer
-	* @param nb_thread : Nombre de thread à créer
+	* @param nbThread : Nombre de thread à créer
 	*/
 	public Evaluation(Population pop, int nbThread) {
 		
