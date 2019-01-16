@@ -5,130 +5,135 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
+import Applicatif.MyInd;
+
+/**
+* Algorithme génétique
+* @version 1.0
+* @since 1.0
+* @see AlgoBuilder
+*/
 public class Algo {
 	
 	private Population pop;
 	private Integer nEnfants;
+	private Integer pourcentageMutation;
 	private Integer nThread;
+
 	private Integer nIteration;
 	private Integer nIterationSamePop;
 	private Integer nIterationSameWinner;
-	private Boolean TimerValidate = false;
+	private Integer timerSecond;
+	private Boolean timerValidate = false;
 
 	private Individu individuReference;
 	private Selection typeSelection;
 	private Remplacement typeRemplacement;
 	private Stop stop;
 
-	public Algo() {
-	}
+	/**
+	* Constructeur de l'algorithme
+	* Instancie les variables de l'algorithme
+	*/
+	public Algo(Integer nEnfants,
+				Integer pourcentageMutation,
+				Integer nThread,
+				Integer populationSize,
+				Integer nIteration,
+				Integer nIterationSamePop,
+				Integer nIterationSameWinner,
+				Integer timerSecond,
+				Individu individuReference,
+				Selection typeSelection,
+				Remplacement typeRemplacement) {
 	
-	public Algo(Individu individuReference, Selection typeSelection, Remplacement typeRemplacement) {
-		this.individuReference = individuReference;
+		this.nEnfants = nEnfants;
+		this.pourcentageMutation = pourcentageMutation;
+		this.nThread = nThread;
+		
 		this.typeSelection = typeSelection;
 		this.typeRemplacement = typeRemplacement;
+		
+		// Creation de la population.
+		if(individuReference!=null) {
+			individuReference = new MyInd();
+		}
+		this.individuReference = individuReference;
+		this.pop = new Population(populationSize, individuReference);
+		
+		// Creation des Stop conditions.
+		this.stop = new Stop();
+		
+		if(nIteration!=null) {
+			this.nIteration = nIteration;
+			this.stop.addStopCondition(new StopConditionNIterations(this));
+		}
+		
+		if(nIterationSamePop!=null) {
+			this.nIterationSamePop = nIterationSamePop;
+			this.stop.addStopCondition(new StopConditionSamePopulation(this));
+		}
+		
+		if(nIterationSameWinner!=null) {
+			this.nIterationSameWinner = nIterationSameWinner;
+			this.stop.addStopCondition(new StopConditionSameWinner(this));
+		}
+		
+		if(timerSecond!=null) {
+			this.timerSecond = timerSecond;
+			this.stop.addStopCondition(new StopConditionTimer(this));
+		}
 	}
 	
-	public void run() {
-		TimerTask timerTask = new MyTimeTask(this);
-		Timer timer = new Timer(true);
+	/**
+	* Exécute l'algorithme
+	* @return Population : population obtenue à la fin de l'éxécution de l'algorithme
+	*/
+	public Population run() {
 		
-		// 2 Secondes
-		timer.schedule(timerTask, 2000);
+		if(this.timerSecond!=null) {
+			TimerTask timerTask = new MyTimeTask(this);
+			Timer timer = new Timer(true);
+			
+			System.out.println(this.timerSecond);
+		}
 		
 		do {
 			// Evalue la population actuelle.
-			Evaluation eval = new Evaluation(pop, nThread);
+			Evaluation eval = new Evaluation(this.pop, this.nThread);
 			eval.evaluer();
 			
 			// Selectionne les parents parmis la population actuelle.
 			Selection selec = typeSelection;
-			List<Vector<Individu>> list_parents = selec.selectionPaires(pop, nEnfants);
+			List<Vector<Individu>> listParents = selec.selectionPaires(this.pop, this.nEnfants);
 	
 			// Croise les parents pour obtenir de nouveaux individus (enfants).
-			Croisement croisement = new Croisement();
-			List<Individu> enfants  = croisement.croisementIndividus(list_parents);
+			Evolution evolution = new Evolution();
+			List<Individu> enfants  = evolution.croisementMutationIndividus(listParents, this.nEnfants, this.pourcentageMutation);
 			
 			// Evalue les nouveaux individus.
 			Population ajout = new Population(enfants);
-			eval = new Evaluation(ajout, nThread);
+			eval = new Evaluation(ajout, this.nThread);
 			eval.evaluer();
 			
 			// Remplace une parmis de l'ancienne population par la nouvelle (enfants).
 			Remplacement remplacement = typeRemplacement;
-			pop = remplacement.remplacer(pop, ajout);
+			this.pop = remplacement.remplacer(this.pop, ajout);
 		}
-		while(!stop.isFinished());
+		while(!this.stop.isFinished());
 		
+		return this.pop;
 	}
-
-	public void run(Individu IndividuReference, Selection typeSelection, Remplacement typeRemplacement) {
-		
-		this.nIteration = 200;
-		this.nIterationSamePop = 2;
-		this.nIterationSameWinner = 2;
-
-		TimerTask timerTask = new MyTimeTask(this);
-		Timer timer = new Timer(true);
-		
-		Stop stop = new Stop();
-		stop.addStopCondition(new StopConditionNIterations(this));
-		stop.addStopCondition(new StopConditionSamePopulation(this));
-		stop.addStopCondition(new StopConditionSameWinner(this));
-		stop.addStopCondition(new StopConditionTimer(this));
-		this.pop = new Population(10000, IndividuReference);
-		
-		// 2 Secondes
-		timer.schedule(timerTask, 2000);
-		
-		do {
-			/*for(Individu ind : pop.getPopulation()) {
-				System.out.println(ind.toString());
-			}*/
-			
-			System.out.println("EVALUATION");		
 	
-			Evaluation eval = new Evaluation(pop, 2);
-			eval.evaluer();
-			
-			/*for(Individu ind : pop.getPopulation()) {
-				System.out.println(ind.toString());
-			}*/
-			
-			System.out.println("SELECTION");
-			
-			Selection selec = typeSelection;
-			List<Vector<Individu>> list_parents = selec.selectionPaires(pop, 2000);
-			
-			/*for(Vector<Individu> v : list_parents) {
-				System.out.println("Vector : (" + v.get(0) + ", " + v.get(1) + ")");
-			}*/
-			
-			/*for(Individu ind : pop.getPopulation()) {
-				System.out.println(ind.toString());
-			}*/
-			
-			System.out.println("CROISEMENT");
-	
-			Croisement croisement = new Croisement();
-			List<Individu> enfants  = croisement.croisementIndividus(list_parents);
-			
-			Population ajout = new Population(enfants);
-			eval = new Evaluation(ajout, 2);
-			eval.evaluer();
-			
-			System.out.println("REMPLACEMENT");
-			
-			Remplacement remplacement = typeRemplacement;
-			pop = remplacement.remplacer(pop, ajout);
-		}
-		while(!stop.isFinished());
-		
-		/*for(Individu ind : pop.getPopulation()) {
-			System.out.println(ind.toString());
-		}*/
-		
+	/**
+	* Retourne l'individu avec le meilleur score d'adaptation de la population
+	* @return Individu : individu avec le meilleur score d'adaptation de la population
+	*/
+	public Individu getWinner() {
+		return this.pop.getMoreCompetent();
 	}
+	
+	// Getters / Setters
 	
 	public Population getPop() {
 		return pop;
@@ -179,11 +184,11 @@ public class Algo {
 	}
 	
 	public Boolean getTimerValidate() {
-		return TimerValidate;
+		return timerValidate;
 	}
 
 	public void setTimerValidate(Boolean timerValidate) {
-		TimerValidate = timerValidate;
+		this.timerValidate = timerValidate;
 	}
 	
 	public Individu getIndividuReference() {
@@ -205,12 +210,13 @@ public class Algo {
 	public Remplacement getTypeRemplacement() {
 		return typeRemplacement;
 	}
+	
+	public void setTypeRemplacement(Remplacement remplacement) {
+		this.typeRemplacement = remplacement;
+	}
 
 	public Stop getStop() {
 		return stop;
 	}
 
-	public Individu getWinner() {
-		return this.pop.getMoreCompetent();
-	}
 }

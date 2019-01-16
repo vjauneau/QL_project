@@ -25,13 +25,13 @@ public class SelectionRang extends Selection{
 	@Override
 	public List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants) {
 				
-		int nb_enfants = nbEnfants;
+		int nbEnfant = nbEnfants;
 		List<Individu> individus = new ArrayList<>(pop.getPopulation());
 		
-		if(nb_enfants%2!=0)nb_enfants++;
+		if(nbEnfant%2!=0)nbEnfant++;
 		
 		individus.sort(Comparator.comparing(Individu::getScore, Comparator.reverseOrder()));
-		individus = individus.subList(0, nb_enfants);
+		individus = individus.subList(0, nbEnfant);
 		
 		return listToPaires(individus);
 	}

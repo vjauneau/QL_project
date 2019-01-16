@@ -20,12 +20,12 @@ public class Evaluation {
 	* @param pop : Population de la simulation à évaluer
 	* @param nb_thread : Nombre de thread à créer
 	*/
-	public Evaluation(Population pop, int nb_thread) {
+	public Evaluation(Population pop, int nbThread) {
 		
 		this.individus = new ArrayList<>(pop.getPopulation());
 		this.threads = new ArrayList<>();
 		
-		for(int i=0; i<nb_thread; i++) {
+		for(int i=0; i<nbThread; i++) {
 			this.threads.add(new EvaluationThread(individus));
 		}
 	}

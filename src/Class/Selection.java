@@ -31,8 +31,8 @@ public abstract class Selection {
 	public List<Vector<Individu>> listToPaires(List<Individu> individus){
 		
 		Random rand = new Random();
-		Individu selected_individu;
-		List<Vector<Individu>> paires_parents = new ArrayList<>();
+		Individu selectedIndividu;
+		List<Vector<Individu>> pairesParents = new ArrayList<>();
 		
 		while(!individus.isEmpty()) {
 			
@@ -40,15 +40,15 @@ public abstract class Selection {
 			
 			for(int j=0; j<2; j++) {
 				int randomIndex = rand.nextInt(individus.size());
-		        selected_individu = individus.get(randomIndex);
-		        individus.remove(selected_individu);
-		        paire.add(selected_individu);
+		        selectedIndividu = individus.get(randomIndex);
+		        individus.remove(selectedIndividu);
+		        paire.add(selectedIndividu);
 			}
 			
-			paires_parents.add(paire);		
+			pairesParents.add(paire);		
 		}
 		
-		return paires_parents;
+		return pairesParents;
 	}
 
 }

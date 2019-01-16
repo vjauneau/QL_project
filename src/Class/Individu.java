@@ -52,12 +52,11 @@ public abstract class Individu {
 	 * @param ind : individu à comparer
 	 * @return Boolean : true si les deux individus sont identiques false sinon
 	 */
-	public Boolean equal(Individu ind) {
+	public Boolean isEqual(Individu ind) {
 
-		if(this.getGene(0) == ind.getGene(0) && this.getGene(1) == ind.getGene(1) && this.getScore() == ind.getScore()) {
-			return true;
-		}
-		else return false;
+		return this.getGene(0) == ind.getGene(0) && this.getGene(1) == ind.getGene(1) && this.getScore() == ind.getScore();
 	}
+	
+	public abstract void setGene(int idx, int value);
 
 }

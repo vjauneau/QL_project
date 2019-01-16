@@ -25,13 +25,13 @@ public class SelectionUniforme extends Selection{
 	@Override
 	public List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants) {
 				
-		int nb_enfants = nbEnfants;
+		int nbEnfant = nbEnfants;
 		List<Individu> individus = new ArrayList<>(pop.getPopulation());
 		
-		if(nb_enfants%2!=0)nb_enfants++;
+		if(nbEnfant%2!=0)nbEnfant++;
 		
 		Collections.shuffle(individus);
-		individus = individus.subList(0, nb_enfants);
+		individus = individus.subList(0, nbEnfant);
 		
 		return listToPaires(individus);
 	}

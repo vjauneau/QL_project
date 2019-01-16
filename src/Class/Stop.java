@@ -22,7 +22,7 @@ public class Stop {
 
 		this.stopConditions = new ArrayList<>();
 	}
-	
+
 	/**
 	* Fonction d'ajout de condition d'arrêt à la liste
 	* @param sc : condition d'arrêt
@@ -30,6 +30,10 @@ public class Stop {
 	public void addStopCondition(StopCondition sc) {
 
 		this.stopConditions.add(sc);
+	}
+	
+	public List<StopCondition> getStopConditions() {
+		return stopConditions;
 	}
 	
 	/**

@@ -10,7 +10,7 @@ import java.util.List;
 * @version 1.0
 * @since 1.0
 */
-public class RemplacementRang extends Remplacement {
+public class RemplacementRang implements Remplacement {
 
 	/**
 	* Remplace n individu dans la population de base par la population d'ajout en fonction de leur rang
@@ -29,8 +29,7 @@ public class RemplacementRang extends Remplacement {
 		List<Individu> toRemove = newPop.subList(0, ajout.getNbIndividu());
 		newPop.removeAll(toRemove);
 
-		Population newPopu = new Population(newPop);
 		
-		return newPopu;
+		return new Population(newPop);
 	}
 }

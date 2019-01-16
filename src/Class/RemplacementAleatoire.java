@@ -9,7 +9,7 @@ import java.util.Random;
 * @version 1.0
 * @since 1.0
 */
-public class RemplacementAleatoire extends Remplacement {
+public class RemplacementAleatoire implements Remplacement {
 
 	/**
 	* Remplace n individu dans la population de base par la population d'ajout
