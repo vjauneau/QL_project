@@ -62,6 +62,11 @@ public class MyInd extends Individu {
 
 		return ind.get(idx);
 	}
+	
+	public void setGene(int idx, int value)
+	{
+		this.ind.set(idx, value);
+	}
 		
 	/**
 	 * méthode d'évaluation d'un individu

@@ -11,14 +11,18 @@ public class Algo {
 	private Integer nIteration;	
 	private Integer nIterationSamePop;	
 	private Integer nIterationSameWinner;	
+	private int nbEnfants;
+	private int pourcentageMutation;
 	private Boolean TimerValidate = false;
 
 
-	public void run(Individu IndividuReference, Selection typeSelection, Remplacement typeRemplacement) {
+	public void run(Individu individuReference, Selection typeSelection, Remplacement typeRemplacement) {
 		
 		this.nIteration = 200;
 		this.nIterationSamePop = 2;
 		this.nIterationSameWinner = 2;
+		this.nbEnfants = 2000;
+		this.pourcentageMutation=3;
 		TimerTask timerTask = new MyTimeTask(this);
 		Timer timer = new Timer(true);
 		
@@ -27,42 +31,28 @@ public class Algo {
 		stop.addStopCondition(new StopConditionSamePopulation(this));
 		stop.addStopCondition(new StopConditionSameWinner(this));
 		stop.addStopCondition(new StopConditionTimer(this));
-		this.pop = new Population(10000, IndividuReference);
+		this.pop = new Population(10000, individuReference);
 		
 		// 2 Secondes
 		timer.schedule(timerTask, 2000);
 		
 		do {
-			/*for(Individu ind : pop.getPopulation()) {
-				System.out.println(ind.toString());
-			}*/
+			
 			
 			System.out.println("EVALUATION");		
 	
 			Evaluation eval = new Evaluation(pop, 2);
 			eval.evaluer();
 			
-			/*for(Individu ind : pop.getPopulation()) {
-				System.out.println(ind.toString());
-			}*/
-			
 			System.out.println("SELECTION");
 			
 			Selection selec = typeSelection;
-			List<Vector<Individu>> list_parents = selec.selectionPaires(pop, 2000);
+			List<Vector<Individu>> listParents = selec.selectionPaires(pop, nbEnfants);
 			
-			/*for(Vector<Individu> v : list_parents) {
-				System.out.println("Vector : (" + v.get(0) + ", " + v.get(1) + ")");
-			}*/
-			
-			/*for(Individu ind : pop.getPopulation()) {
-				System.out.println(ind.toString());
-			}*/
-			
-			System.out.println("CROISEMENT");
+			System.out.println("Evolution");
 	
-			Croisement croisement = new Croisement();
-			List<Individu> enfants  = croisement.croisementIndividus(list_parents);
+			Evolution evolution = new Evolution();
+			List<Individu> enfants  = evolution.croisementMutationIndividus(listParents, nbEnfants, pourcentageMutation);
 			
 			Population ajout = new Population(enfants);
 			eval = new Evaluation(ajout, 2);
@@ -74,10 +64,7 @@ public class Algo {
 			pop = remplacement.remplacer(pop, ajout);
 		}
 		while(!stop.isFinished());
-		
-		/*for(Individu ind : pop.getPopulation()) {
-			System.out.println(ind.toString());
-		}*/
+	
 		
 	}
 

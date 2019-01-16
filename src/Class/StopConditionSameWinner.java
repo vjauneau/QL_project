@@ -35,7 +35,7 @@ public class StopConditionSameWinner extends StopCondition{
 			System.out.println(this.winner);
 			System.out.println(this.algo.getWinner());
 	
-			if(this.winner.equal(this.algo.getWinner())){
+			if(this.winner.isEqual(this.algo.getWinner())){
 				this.iterations ++;
 				System.out.println("plop");
 

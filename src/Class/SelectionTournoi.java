@@ -27,12 +27,12 @@ public class SelectionTournoi extends Selection{
 	public List<Vector<Individu>> selectionPaires(Population pop, Integer nbEnfants) {
 		
 		Random rand = new Random();
-		int nb_enfants = nbEnfants;
-		if(nb_enfants%2!=0)nb_enfants++;
+		int nbEnfant = nbEnfants;
+		if(nbEnfant%2!=0)nbEnfant++;
 		List<Individu> individus = new ArrayList<>(pop.getPopulation());
 		List<Individu> selected = new ArrayList<>();
 
-		for(int i = 0; i < nb_enfants; i++) {
+		for(int i = 0; i < nbEnfant; i++) {
 			List<Individu> tournoiInd = new ArrayList<>();
 			tournoiInd.add(individus.get(rand.nextInt(individus.size())));
 			tournoiInd.add(individus.get(rand.nextInt(individus.size())));

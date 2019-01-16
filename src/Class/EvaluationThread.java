@@ -11,7 +11,7 @@ import java.util.List;
 */
 public class EvaluationThread extends Thread {
 
-	private List<Individu> unevaluated_individus;
+	private List<Individu> unevaluatedIndividus;
 	
 	/**
 	* Constructeur de EvaluationThread : créer un thread d'évaluation
@@ -19,25 +19,26 @@ public class EvaluationThread extends Thread {
 	*/
 	public EvaluationThread(List<Individu> individus) {
 		
-		this.unevaluated_individus = individus;
+		this.unevaluatedIndividus = individus;
 	}
 	
 	/**
 	* Fonctionnement d'un thread d'évaluation
 	* @see Individu.evaluer(), Individu.setScore()
 	*/
+	@Override
 	public void run() {
 		
 		Individu ind = null;
-		Boolean list_empty = false;
+		Boolean listEmpty = false;
 		
-		while(!list_empty) {
-			synchronized(unevaluated_individus) {
-				if(!unevaluated_individus.isEmpty()) {
-					ind = unevaluated_individus.get(0);
-					unevaluated_individus.remove(ind);
+		while(!listEmpty) {
+			synchronized(this.unevaluatedIndividus) {
+				if(!this.unevaluatedIndividus.isEmpty()) {
+					ind = this.unevaluatedIndividus.get(0);
+					this.unevaluatedIndividus.remove(ind);
 				}
-				else list_empty = true;				
+				else listEmpty = true;				
 			}
 			if(ind != null)ind.setScore(ind.evaluer());
 		}

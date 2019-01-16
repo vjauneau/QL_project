@@ -7,7 +7,7 @@ package Class;
 * @since 1.0
 * @see RemplacementAleatoire, RemplacementRang
 */
-public abstract class Remplacement {
+public abstract interface Remplacement {
 	
 	/**
 	 * Méthode abstraite remplacer
