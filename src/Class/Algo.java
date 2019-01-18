@@ -106,7 +106,6 @@ public class Algo {
 			TimerTask timerTask = new MyTimeTask(this);
 			Timer timer = new Timer(true);
 			
-			System.out.println(this.timerSecond);
 		}
 		
 		do {

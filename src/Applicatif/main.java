@@ -42,8 +42,8 @@ public class main {
                 // Conditions d'arrêt paramètres
                 // /!\ UNE CONDITION D'ARRET MINIMUM
                 .nIteration(100)  			// Optionnel
-                .nIterationSamePop(100)  	// Optionnel
-                .nIterationSameWinner(100)  // Optionnel
+                .nIterationSamePop(5)  	// Optionnel
+                .nIterationSameWinner(5)  // Optionnel
                 .timerSecond(3000)  		// Optionnel (temps en seconde)
                 
                 // Creation de l'Algo
